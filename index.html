@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Calculator</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+<header>
+    <div class="site-name">Interactive Calculator</div>
+</header>
+
+<div class="calculator-box">
+
+    <aside>
+        <button onclick="switchToStandard()">Standard</button>
+        <button onclick="switchToScientific()">Scientific</button>
+        <button onclick="switchToData()">Date</button>
+        <button onclick="switchToLength()">Length</button>
+    </aside>
+
+    <div id="standard-calculator">
+        <input type="text" class="screen" id="standard-screen" readonly>
+        <div class="button-grid">
+            <button onclick="percent()">%</button>
+            <button onclick="clearScreen()">CE</button>
+            <button onclick="clearScreen()">C</button>
+            <button onclick="removeLastChar()"><</button>
+
+            <button onclick="inverse()">1/x</button>
+            <button onclick="power_of_two()">x<sup>2</sup></button>
+            <button onclick="sqrt()">√</button>
+            <button onclick="setOperator('/')">÷</button>
+
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="setOperator('*')">×</button>
+
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="setOperator('-')">−</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="setOperator('+')">+</button>
+
+            <button onclick="sgn()">+-</button>
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="dot()">.</button>
+            <button onclick="calculate()">=</button>
+        </div>
+    </div class>
+
+    <div id="scientific-calculator">
+        <input type="text" class="screen" id="scientific-screen" readonly>
+        <div class="button-grid">
+            <button onclick="power_of_two()">x<sup>2</sup></button>
+            <button onclick="appendValue('3.14159265359')">π</button>
+            <button onclick="appendValue('2.71828182845')">e</button>
+            <button onclick="clearScreen()">C</button>
+            <button onclick="removeLastChar()"><</button>
+
+            <button onclick="power_of_three()">x<sup>3</sup></button>
+            <button onclick="inverse()">1/x</button>
+            <button onclick="abs()">|x|</button>
+            <button onclick="exp()">e<sup>x</sup></button>
+            <button onclick="setOperator('mod')">mod</button>
+
+            <button onclick="setOperator('^')">x<sup>y</sup></button>
+            <button onclick="sqrt()">√</button>
+            <button onclick="cbrt()">∛</button>
+            <button onclick="factorial()">x!</button>
+            <button onclick="setOperator('/')">÷</button>
+
+
+            <button onclick="ten_to_the_power()">10<sup>x</sup></button>
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="setOperator('*')">×</button>
+
+
+            <button onclick="setOperator('log')">log<sub>x</sub>y</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="setOperator('-')">-</button>
+
+
+            <button onclick="lg()">lg</button>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="setOperator('-')">+</button>
+
+
+            <button onclick="ln()">ln</button>
+            <button onclick="sgn()">+-</button>
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="dot()">.</button>
+            <button onclick="calculate()">=</button>
+
+
+        </div>
+    </div>
+
+    <div id="data-calculator">
+        <label for="date1">From:</label>
+        <input type="date" id="date1" class="date-input">
+        <label for="date2">To:</label>
+        <input type="date" id="date2" class="date-input">
+        <label for="data-screen">Difference:</label>
+        <input type="text" class="screen" id="data-screen" readonly>
+    </div>
+
+    <div id="length-calculator">
+        <div class="input-group">
+            <input type="text" id="input-value" class="screen" placeholder="Enter value"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1')">
+            <select id="input-unit">
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="centimeter">Centimeter</option>
+                <option value="millimeter">Millimeter</option>
+                <option value="inch">Inch</option>
+                <option value="foot">Foot</option>
+                <option value="yard">Yard</option>
+                <option value="mile">Mile</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <input type="text" id="output-value" class="screen" readonly placeholder="Result">
+            <select id="output-unit">
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="centimeter">Centimeter</option>
+                <option value="millimeter">Millimeter</option>
+                <option value="inch">Inch</option>
+                <option value="foot">Foot</option>
+                <option value="yard">Yard</option>
+                <option value="mile">Mile</option>
+            </select>
+        </div>
+    </div>
+
+</div>
+
+<footer>© 2025 Interactive Calculator</footer>
+
+</body>
+
+<script src="js/script.js"></script>
+<script src="js/typical-functions.js"></script>
+<script src="js/standard-calculator.js"></script>
+<script src="js/scientific-calculator.js"></script>
+<script src="js/date-calculator.js"></script>
+<script src="js/length-calculator.js"></script>
+
+</html>
